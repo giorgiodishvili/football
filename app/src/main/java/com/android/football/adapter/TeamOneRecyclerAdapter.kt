@@ -8,10 +8,12 @@ import com.android.football.databinding.ChildRvItemBinding
 import com.android.football.entity.TeamAction
 import com.android.football.enum.GoalType
 import com.android.football.enum.MatchActionType
+import com.android.football.extension.loadImage
 
 class TeamOneRecyclerAdapter(
     private val time: String,
-    private val team1Action: MutableList<TeamAction?>
+    private val team1Action: MutableList<TeamAction?>,
+    private val actionSurplus: Int = 0,
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private lateinit var binding: ChildRvItemBinding
@@ -26,13 +28,14 @@ class TeamOneRecyclerAdapter(
     }
 
     override fun getItemCount(): Int {
-        return team1Action.size
+        return team1Action.size + actionSurplus
     }
 
     inner class ChildRecyclerViewHolder(binding: ChildRvItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun onBind() {
+            if(absoluteAdapterPosition>=team1Action.size) return
             val action = team1Action[absoluteAdapterPosition]!!.action
             when (team1Action[absoluteAdapterPosition]!!.actionType) {
                 MatchActionType.GOAL.id -> {
@@ -43,10 +46,13 @@ class TeamOneRecyclerAdapter(
                         binding.text.text = "$time Goal by"
                         binding.imageView.setImageResource(R.mipmap.goal)
                     }
+                    binding.playerView.loadImage(action.player!!.playerImage)
                     binding.team1Action.text =
                         action.player!!.playerName
                 }
                 MatchActionType.SUBSTITUTION.id -> {
+                    binding.playerView.loadImage(action.player1!!.playerImage)
+
                     binding.imageView.setImageResource(R.mipmap.yellow)
                     binding.text.text = "$time Substitution"
                     binding.team1Action.text =
@@ -55,10 +61,13 @@ class TeamOneRecyclerAdapter(
                 MatchActionType.YELLOW_CARD.id -> {
                     binding.imageView.setImageResource(R.mipmap.yellow)
                     binding.text.text = "$time Tripping"
+                    binding.playerView.loadImage(action.player!!.playerImage)
                     binding.team1Action.text =
                         action.player!!.playerName
                 }
                 MatchActionType.RED_CARD.id -> {
+                    binding.playerView.loadImage(action.player!!.playerImage)
+
                     binding.imageView.setImageResource(R.mipmap.yellow)
                     binding.text.text = "$time Tripping"
                     binding.team1Action.text =

@@ -31,29 +31,31 @@ class GameRecyclerViewAdapter(
             summary = game.match.matchSummary.summaries[absoluteAdapterPosition]
             populateTeamActions()
             val team1recyclerLayoutManager = LinearLayoutManager(
-                team1Recycler.context, LinearLayoutManager.HORIZONTAL, false
+                team1Recycler.context, LinearLayoutManager.VERTICAL, false
             )
             team1recyclerLayoutManager.initialPrefetchItemCount = 4
             team1Recycler.apply {
                 layoutManager = team1recyclerLayoutManager
-                adapter = TeamOneRecyclerAdapter(summary.actionTime,team1Action)
+                adapter = TeamOneRecyclerAdapter(summary.actionTime,team1Action,
+                    if(team1Action.size > team2Action.size) 0 else team2Action.size - team1Action.size
+                    )
                 setRecycledViewPool(viewPool)
+                isNestedScrollingEnabled = false
             }
 
             val team2recyclerLayoutManager = LinearLayoutManager(
-                team2Recycler.context, LinearLayoutManager.HORIZONTAL, false
+                team2Recycler.context, LinearLayoutManager.VERTICAL, false
             )
             team2recyclerLayoutManager.initialPrefetchItemCount = 4
             team2Recycler.apply {
                 layoutManager = team2recyclerLayoutManager
-                adapter = TeamTwoRecyclerAdapter(summary.actionTime,team2Action)
+                adapter = TeamTwoRecyclerAdapter(summary.actionTime,team2Action,
+                    if(team1Action.size < team2Action.size) 0 else team1Action.size - team2Action.size
+                    )
                 setRecycledViewPool(viewPool)
+                isNestedScrollingEnabled = false
+
             }
-
-
-
-
-
         }
 
         private fun populateTeamActions() {
