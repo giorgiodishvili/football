@@ -59,4 +59,10 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
 }

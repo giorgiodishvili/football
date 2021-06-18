@@ -3,12 +3,194 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GameFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.game.GameFragment">
 
-    <TextView
-        android:id="@+id/hero"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+
+        <ProgressBar
+            android:id="@+id/progress_circular"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="375dp"
+            android:layout_height="664dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp"
+            app:cardMaxElevation="12dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+                <androidx.constraintlayout.widget.ConstraintLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/tvDateAndStadium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="30/20/2021 Camp NIw"
+                            android:textAlignment="center"
+                            android:textStyle="normal"
+                            android:textSize="12sp"
+                            android:textColor="#00aa7b"
+
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <ImageView
+                            android:id="@+id/team1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_launcher_foreground"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvDateAndStadium" />
+
+                        <TextView
+                            android:id="@+id/team1Name"
+                            tools:text="Barcelona"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="normal"
+                            android:textSize="12sp"
+                            android:textColor="#000000"
+                            app:layout_constraintEnd_toEndOf="@+id/team1"
+                            app:layout_constraintStart_toStartOf="@+id/team1"
+                            app:layout_constraintTop_toBottomOf="@id/team1" />
+
+                        <TextView
+                            android:id="@+id/tvScore"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="7:2"
+                            android:textAlignment="center"
+                            android:textStyle="normal"
+                            android:textSize="25sp"
+                            android:textColor="#000000"
+
+                            app:layout_constraintBottom_toTopOf="@+id/Parent_recyclerView"
+                            app:layout_constraintEnd_toStartOf="@+id/team2"
+                            app:layout_constraintStart_toEndOf="@+id/team1"
+                            app:layout_constraintTop_toBottomOf="@+id/tvDateAndStadium" />
+
+                        <TextView
+                            android:id="@+id/matchTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:textColor="#b1b1b1"
+                            android:textSize="12sp"
+                            android:textStyle="normal"
+                            app:layout_constraintEnd_toEndOf="@+id/tvScore"
+                            app:layout_constraintStart_toStartOf="@+id/tvScore"
+                            app:layout_constraintTop_toBottomOf="@+id/tvScore"
+                            tools:text="79’" />
+
+                        <ImageView
+                            android:id="@+id/team2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_launcher_foreground"
+                            app:layout_constraintEnd_toEndOf="parent"
+
+                            app:layout_constraintTop_toBottomOf="@id/tvDateAndStadium" />
+
+                        <TextView
+                            android:id="@+id/team2Name"
+                            tools:text="Huesca"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="normal"
+                            android:textSize="12sp"
+                            android:textColor="#000000"
+
+                            app:layout_constraintEnd_toEndOf="@+id/team2"
+                            app:layout_constraintStart_toStartOf="@+id/team2"
+                            app:layout_constraintTop_toBottomOf="@id/team2" />
+
+
+                        <TextView
+                            android:id="@+id/ballPossession"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ball Possession"
+                            android:textStyle="normal"
+                            android:textSize="12sp"
+                            android:textColor="#b0b0b0"
+                            android:layout_marginTop="10dp"
+                            app:layout_constraintBottom_toTopOf="@+id/ballPositionProgress"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/team1Name"/>
+
+                        <TextView
+                            android:id="@+id/team1Possission"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="70"
+                            android:textStyle="normal"
+                            android:textSize="12sp"
+                            android:textColor="#b0b0b0"
+                            android:layout_marginTop="10dp"
+                            app:layout_constraintEnd_toStartOf="@+id/ballPossession"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/team1Name"
+                            />
+
+                        <TextView
+                            android:id="@+id/team2Possission"
+                            android:layout_width="17dp"
+                            android:layout_height="12dp"
+                            android:layout_marginTop="10dp"
+                            android:textColor="#b0b0b0"
+                            android:textSize="12sp"
+                            android:textStyle="normal"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/ballPossession"
+                            app:layout_constraintTop_toBottomOf="@+id/team2Name"
+                            tools:text="30" />
+
+
+
+
+                        <ProgressBar
+
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/ballPositionProgress"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:max="100"
+                            android:progress="70"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/ballPositionProgress"
+                            app:layout_constraintBottom_toTopOf="@+id/Parent_recyclerView"
+                            />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/Parent_recyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:scrollbars="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/ballPositionProgress"
+                            />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
