@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.game.GameFragment">
 
@@ -39,7 +40,7 @@
                             android:id="@+id/tvDateAndStadium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="30/20/2021 Camp NIw"
+                            android:text=""
                             android:textAlignment="center"
                             android:textStyle="normal"
                             android:textSize="12sp"
@@ -54,13 +55,16 @@
                             android:id="@+id/team1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintBottom_toTopOf="@+id/team1Name"
+
                             android:src="@drawable/ic_launcher_foreground"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/tvDateAndStadium" />
 
                         <TextView
                             android:id="@+id/team1Name"
-                            tools:text="Barcelona"
+                            android:text=""
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textStyle="normal"
@@ -74,7 +78,8 @@
                             android:id="@+id/tvScore"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="7:2"
+                            android:text=""
+
                             android:textAlignment="center"
                             android:textStyle="normal"
                             android:textSize="25sp"
@@ -96,20 +101,24 @@
                             app:layout_constraintEnd_toEndOf="@+id/tvScore"
                             app:layout_constraintStart_toStartOf="@+id/tvScore"
                             app:layout_constraintTop_toBottomOf="@+id/tvScore"
-                            tools:text="79’" />
+                            android:text=""
+                            />
 
                         <ImageView
                             android:id="@+id/team2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
                             android:src="@drawable/ic_launcher_foreground"
                             app:layout_constraintEnd_toEndOf="parent"
-
+                            android:text=""
+                            app:layout_constraintBottom_toTopOf="@+id/team2Name"
                             app:layout_constraintTop_toBottomOf="@id/tvDateAndStadium" />
 
                         <TextView
                             android:id="@+id/team2Name"
-                            tools:text="Huesca"
+                            android:text=""
+
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textStyle="normal"
@@ -139,7 +148,7 @@
                             android:id="@+id/team1Possission"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            tools:text="70"
+                            android:text=""
                             android:textStyle="normal"
                             android:textSize="12sp"
                             android:textColor="#b0b0b0"
@@ -160,7 +169,8 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/ballPossession"
                             app:layout_constraintTop_toBottomOf="@+id/team2Name"
-                            tools:text="30" />
+                            android:text=""
+                            />
 
 
 

@@ -1,4 +1,4 @@
-package com.android.myanimelist.api
+package com.android.football.api
 
 
 import retrofit2.Retrofit

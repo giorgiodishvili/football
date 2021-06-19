@@ -2,6 +2,8 @@ package com.android.football.extension
 
 import android.annotation.SuppressLint
 import android.app.Dialog
+import android.graphics.Color
+import android.graphics.Color.BLACK
 import android.view.Gravity
 import android.view.View
 import android.view.View.GONE
@@ -28,22 +30,8 @@ fun ImageView.loadImage(imageUrl: String?) {
 @SuppressLint("SimpleDateFormat")
 fun Long.convertLongToTime(): String {
     val date = Date(this)
-    val format = SimpleDateFormat("yyyy.MM.dd")
+    val format = SimpleDateFormat("dd MMMM yyyy")
     return format.format(date)
-}
-
-
-fun Dialog.setUp(binding: ViewBinding, color: Int, height: Int) {
-
-    requestWindowFeature(Window.FEATURE_NO_TITLE)
-    setContentView(binding.root)
-    window!!.setBackgroundDrawableResource(color)
-    val lp = WindowManager.LayoutParams()
-    lp.copyFrom(window!!.attributes)
-    lp.width = WindowManager.LayoutParams.MATCH_PARENT
-    lp.height = height
-    lp.gravity = Gravity.CENTER
-    window!!.attributes = lp
 }
 
 fun View.changeVisibility(visible: Boolean){
