@@ -13,7 +13,7 @@
         app:layout_constraintStart_toStartOf="@id/lineV"
         app:layout_constraintTop_toTopOf="@id/lineV"
         app:layout_constraintBottom_toBottomOf="@id/lineV"
-        app:srcCompat="@mipmap/dot"
+        app:srcCompat="@drawable/dot"
         />
 
     <androidx.recyclerview.widget.RecyclerView

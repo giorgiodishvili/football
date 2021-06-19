@@ -33,6 +33,7 @@
         android:textColor="#000000"
         android:textSize="12sp"
         android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/playerView"
         app:layout_constraintBottom_toTopOf="@+id/player2Name"
         app:layout_constraintEnd_toEndOf="@+id/text"
         app:layout_constraintTop_toBottomOf="@+id/text"
@@ -46,7 +47,6 @@
         android:textSize="12sp"
         android:textStyle="normal"
         app:layout_constraintBottom_toBottomOf="parent"
-
         app:layout_constraintStart_toStartOf="@+id/player1Name"
         tools:text="Gallar A. " />
 
@@ -62,23 +62,22 @@
 
     <ImageView
         android:id="@+id/IVPlayerIn"
-        tools:src="@drawable/group_58"
         android:layout_width="6.8dp"
         android:layout_height="6.8dp"
-        android:layout_marginEnd="10dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/player_in"
         app:layout_constraintBottom_toTopOf="@+id/IVPlayerOut"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/IVPlayerOut"
-        tools:src="@drawable/group_56"
         android:layout_width="6.8dp"
         android:layout_height="6.8dp"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/IVPlayerIn"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        android:layout_margin="8dp"
+        android:src="@drawable/ic_player_out"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/IVPlayerIn"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

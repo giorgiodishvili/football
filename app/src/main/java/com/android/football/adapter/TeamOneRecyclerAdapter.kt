@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.android.football.R
 import com.android.football.databinding.FirstTeamLayoutBinding
-import com.android.football.databinding.SecondTeamLayoutBinding
+import com.android.football.databinding.FirstTeamSubstitutionLayoutBinding
 import com.android.football.entity.TeamAction
 import com.android.football.enum.GoalType
 import com.android.football.enum.MatchActionType
@@ -18,22 +18,71 @@ class TeamOneRecyclerAdapter(
     private val actionSurplus: Int = 0,
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private lateinit var binding: FirstTeamLayoutBinding
+    companion object{
+        const val SUBSTITUTION = 1
+        const val OTHER = 2
+    }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        binding = FirstTeamLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ChildRecyclerViewHolder(binding)
+        return when (viewType) {
+            TeamTwoRecyclerAdapter.OTHER -> ChildRecyclerViewHolder(
+                FirstTeamLayoutBinding.inflate(
+                    LayoutInflater.from(parent.context), parent, false
+                )
+            )
+            else -> {
+                SubstitutionViewHolder(
+                    FirstTeamSubstitutionLayoutBinding.inflate(
+                        LayoutInflater.from(parent.context), parent, false
+                    )
+                )
+            }
+        }
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as ChildRecyclerViewHolder).onBind()
+        when (holder) {
+            is ChildRecyclerViewHolder -> holder.onBind()
+            is SubstitutionViewHolder -> holder.onBind()
+        }
+    }
+
+    inner class SubstitutionViewHolder(private val binding: FirstTeamSubstitutionLayoutBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        fun onBind() {
+            if(absoluteAdapterPosition>=team1Action.size) return
+
+            val action = team1Action[absoluteAdapterPosition]!!.action
+            when (team1Action[absoluteAdapterPosition]!!.actionType) {
+                MatchActionType.SUBSTITUTION.id -> {
+                    binding.playerView.loadImage(action.player1!!.playerImage)
+                    binding.text.text = "$time' Substitution"
+                    binding.player1Name.text =
+                        action.player1.playerName
+                    binding.player2Name.text =
+                        action.player2!!.playerName
+                }
+            }
+        }
     }
 
     override fun getItemCount(): Int {
         return team1Action.size + actionSurplus
     }
 
-    inner class ChildRecyclerViewHolder(binding: FirstTeamLayoutBinding) :
+
+    override fun getItemViewType(position: Int): Int {
+
+
+        return if (position >= team1Action.size || team1Action[position]!!.actionType != MatchActionType.SUBSTITUTION.id) {
+            OTHER
+        } else {
+            SUBSTITUTION
+        }
+    }
+    inner class ChildRecyclerViewHolder(private val binding: FirstTeamLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun onBind() {

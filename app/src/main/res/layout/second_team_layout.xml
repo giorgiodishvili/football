@@ -19,7 +19,7 @@
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="7dp"
 
         android:layout_marginBottom="1dp"
         android:textColor="#000000"
@@ -34,7 +34,7 @@
         android:id="@+id/team1Action"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="15dp"
+        android:layout_marginEnd="7dp"
         android:maxLines="2"
         android:ellipsize="end"
         android:singleLine="false"

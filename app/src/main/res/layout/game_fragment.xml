@@ -19,8 +19,8 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
-            android:layout_width="375dp"
-            android:layout_height="664dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="20dp"
             app:cardElevation="10dp"
@@ -30,7 +30,9 @@
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
                 <androidx.constraintlayout.widget.ConstraintLayout
 
                     android:layout_width="match_parent"
@@ -42,9 +44,9 @@
                             android:layout_height="wrap_content"
                             android:text=""
                             android:textAlignment="center"
-                            android:textStyle="normal"
-                            android:textSize="12sp"
                             android:textColor="#00aa7b"
+                            android:textSize="12sp"
+                            android:textStyle="normal"
 
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -56,20 +58,20 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            app:layout_constraintBottom_toTopOf="@+id/team1Name"
-
                             android:src="@drawable/ic_launcher_foreground"
+
+                            app:layout_constraintBottom_toTopOf="@+id/team1Name"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/tvDateAndStadium" />
 
                         <TextView
                             android:id="@+id/team1Name"
-                            android:text=""
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textStyle="normal"
-                            android:textSize="12sp"
+                            android:text=""
                             android:textColor="#000000"
+                            android:textSize="12sp"
+                            android:textStyle="normal"
                             app:layout_constraintEnd_toEndOf="@+id/team1"
                             app:layout_constraintStart_toStartOf="@+id/team1"
                             app:layout_constraintTop_toBottomOf="@id/team1" />
@@ -81,9 +83,9 @@
                             android:text=""
 
                             android:textAlignment="center"
-                            android:textStyle="normal"
-                            android:textSize="25sp"
                             android:textColor="#000000"
+                            android:textSize="25sp"
+                            android:textStyle="normal"
 
                             app:layout_constraintBottom_toTopOf="@+id/Parent_recyclerView"
                             app:layout_constraintEnd_toStartOf="@+id/team2"
@@ -95,14 +97,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
+                            android:text=""
                             android:textColor="#b1b1b1"
                             android:textSize="12sp"
                             android:textStyle="normal"
                             app:layout_constraintEnd_toEndOf="@+id/tvScore"
                             app:layout_constraintStart_toStartOf="@+id/tvScore"
-                            app:layout_constraintTop_toBottomOf="@+id/tvScore"
-                            android:text=""
-                            />
+                            app:layout_constraintTop_toBottomOf="@+id/tvScore" />
 
                         <ImageView
                             android:id="@+id/team2"
@@ -110,20 +111,20 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="10dp"
                             android:src="@drawable/ic_launcher_foreground"
-                            app:layout_constraintEnd_toEndOf="parent"
                             android:text=""
                             app:layout_constraintBottom_toTopOf="@+id/team2Name"
+                            app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/tvDateAndStadium" />
 
                         <TextView
                             android:id="@+id/team2Name"
-                            android:text=""
-
                             android:layout_width="wrap_content"
+
                             android:layout_height="wrap_content"
-                            android:textStyle="normal"
-                            android:textSize="12sp"
+                            android:text=""
                             android:textColor="#000000"
+                            android:textSize="12sp"
+                            android:textStyle="normal"
 
                             app:layout_constraintEnd_toEndOf="@+id/team2"
                             app:layout_constraintStart_toStartOf="@+id/team2"
@@ -134,61 +135,56 @@
                             android:id="@+id/ballPossession"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Ball Possession"
-                            android:textStyle="normal"
-                            android:textSize="12sp"
-                            android:textColor="#b0b0b0"
                             android:layout_marginTop="10dp"
+                            android:text="Ball Possession"
+                            android:textColor="#b0b0b0"
+                            android:textSize="12sp"
+                            android:textStyle="normal"
                             app:layout_constraintBottom_toTopOf="@+id/ballPositionProgress"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/team1Name"/>
+                            app:layout_constraintTop_toBottomOf="@+id/team1Name" />
 
                         <TextView
                             android:id="@+id/team1Possission"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text=""
-                            android:textStyle="normal"
-                            android:textSize="12sp"
-                            android:textColor="#b0b0b0"
                             android:layout_marginTop="10dp"
+                            android:text=""
+                            android:textColor="#b0b0b0"
+                            android:textSize="12sp"
+                            android:textStyle="normal"
                             app:layout_constraintEnd_toStartOf="@+id/ballPossession"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/team1Name"
-                            />
+                            app:layout_constraintTop_toBottomOf="@+id/team1Name" />
 
                         <TextView
                             android:id="@+id/team2Possission"
                             android:layout_width="17dp"
                             android:layout_height="12dp"
                             android:layout_marginTop="10dp"
+                            android:text=""
                             android:textColor="#b0b0b0"
                             android:textSize="12sp"
                             android:textStyle="normal"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/ballPossession"
-                            app:layout_constraintTop_toBottomOf="@+id/team2Name"
-                            android:text=""
-                            />
-
-
+                            app:layout_constraintTop_toBottomOf="@+id/team2Name" />
 
 
                         <ProgressBar
 
+                            android:id="@+id/ballPositionProgress"
                             style="?android:attr/progressBarStyleHorizontal"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/ballPositionProgress"
                             android:layout_centerHorizontal="true"
                             android:layout_centerVertical="true"
                             android:max="100"
                             android:progress="70"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/ballPositionProgress"
                             app:layout_constraintBottom_toTopOf="@+id/Parent_recyclerView"
-                            />
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/ballPositionProgress" />
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/Parent_recyclerView"
@@ -196,8 +192,7 @@
                             android:layout_height="0dp"
                             android:scrollbars="vertical"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/ballPositionProgress"
-                            />
+                            app:layout_constraintTop_toBottomOf="@+id/ballPositionProgress" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
